@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class rv_adapter(var data:List<TheProject>):RecyclerView.Adapter<rv_adapter.ViewHolder>(){
 
-//    private var data =  emptyList<TheProject>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,7 +28,7 @@ class rv_adapter(var data:List<TheProject>):RecyclerView.Adapter<rv_adapter.View
         var any = v.findViewById<TextView>(R.id.rv_text)
         fun bind(d:TheProject){
             id.text = d.code.toString()
-            any.text = d.anything.toString()
+            any.text = d.anything
         }
     }
 }
