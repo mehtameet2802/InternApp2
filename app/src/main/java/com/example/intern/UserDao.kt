@@ -13,7 +13,4 @@ interface UserDao {
 
     @Query("SELECT * FROM yes_thats_me ORDER BY id ASC")
     fun readData() : LiveData<List<TheProject>>
-
-//    @Query("SELECT COUNT(*) FROM yes_thats_me")
-//    fun length(): Int
 }

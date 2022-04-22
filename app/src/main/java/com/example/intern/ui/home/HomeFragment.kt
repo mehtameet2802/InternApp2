@@ -1,6 +1,7 @@
 package com.example.intern.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var mUserViewModel:UserViewModel
     private lateinit var rv:RecyclerView
+    var set = 0;
     private var length = 0
 
     override fun onCreateView(
@@ -42,7 +44,7 @@ class HomeFragment : Fragment() {
 
 
 
-        rv= binding.rvHome
+        rv = binding.rvHome
 
         rv.layoutManager = LinearLayoutManager(requireContext())
 
@@ -56,10 +58,8 @@ class HomeFragment : Fragment() {
         val add = binding.btnHome
         add.setOnClickListener {
             insertData()
-//            rv.adapter?.notifyDataSetChanged()
-            rv.adapter?.notifyItemInserted(length-1)
-//            rv.scrollToPosition(25)
         }
+
 
 
 
@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun insertData() {
-        val content = mutableListOf<String>("Hello","Hi","See you soon")
+        val content = mutableListOf<String>("Hello","Hi","See you soon","How are you","Bye Bye","Yes","No")
         val data = TheProject(0,content.random().toString())
         mUserViewModel.add(data)
         length += 1
