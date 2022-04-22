@@ -27,8 +27,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var mUserViewModel:UserViewModel
     private lateinit var rv:RecyclerView
-    var set = 0;
-    private var length = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +51,6 @@ class HomeFragment : Fragment() {
         mUserViewModel = ViewModelProvider(this)[UserViewModel::class.java]
         mUserViewModel.readData.observe(viewLifecycleOwner, Observer { data ->
             rv.adapter = rv_adapter(data)
-            length = data.size
         })
 
         val add = binding.btnHome
@@ -72,7 +70,6 @@ class HomeFragment : Fragment() {
         val content = mutableListOf<String>("Hello","Hi","See you soon","How are you","Bye Bye","Yes","No")
         val data = TheProject(0,content.random().toString())
         mUserViewModel.add(data)
-        length += 1
         Toast.makeText(requireContext(),"Data added",Toast.LENGTH_SHORT).show()
     }
 
